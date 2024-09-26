@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Songs</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>All Songs</h1>
+
+        <div class="buttons">
+            <a href="/add-song" class="button">Add Song</a>
+        </div>
+
+        <ul>
+            <% songs.forEach(function(song) { %>
+                <li class="song-card">
+                    <div class="song-item">
+                        <span class="song-title">
+                            <a href="/song/<%= song.id %>"><%= song.title %></a>
+                        </span>
+                        
+                        <!-- Delete Button Form -->
+                        <form action="/delete-song/<%= song.id %>" method="POST">
+                            <button type="submit" class="delete-button">Delete</button>
+                        </form>
+                    </div>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+</body>
+</html>
